@@ -1,0 +1,621 @@
+hostgroups:
+  - name: Base
+    puppetclasses:
+      - base
+    fact_rules: []
+  - name: Base/Linux
+    puppetclasses:
+      - base::linux
+    fact_rules:
+      - fact: kernel
+        operator: "="
+        value: Linux
+  - name: Base/Linux/Kubernetes
+    puppetclasses:
+      - kubernetes
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: kubernetes
+  - name: Base/Linux/Kubernetes/Controlplane
+    puppetclasses:
+      - kubernetes::control_plane
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: control_plane
+  - name: Base/Linux/Kubernetes/Worker
+    puppetclasses:
+      - kubernetes::worker
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: worker
+  - name: Base/Linux/Openobserve
+    puppetclasses:
+      - openobserve
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: openobserve
+  - name: Base/Linux/Openobserve/Ingester
+    puppetclasses:
+      - openobserve::ingester
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: ingester
+  - name: Base/Linux/Openobserve/Querier
+    puppetclasses:
+      - openobserve::querier
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: querier
+  - name: Base/Linux/Prometheus
+    puppetclasses:
+      - prometheus
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: prometheus
+  - name: Base/Linux/Prometheus/Server
+    puppetclasses:
+      - prometheus::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Prometheus/Nodeexporter
+    puppetclasses:
+      - prometheus::node_exporter
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: node_exporter
+  - name: Base/Linux/Grafana
+    puppetclasses:
+      - grafana
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: grafana
+  - name: Base/Linux/Grafana/Server
+    puppetclasses:
+      - grafana::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Elasticsearch
+    puppetclasses:
+      - elasticsearch
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: elasticsearch
+  - name: Base/Linux/Elasticsearch/Master
+    puppetclasses:
+      - elasticsearch::master
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: master
+  - name: Base/Linux/Elasticsearch/Data
+    puppetclasses:
+      - elasticsearch::data
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: data
+  - name: Base/Linux/Redis
+    puppetclasses:
+      - redis
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: redis
+  - name: Base/Linux/Redis/Master
+    puppetclasses:
+      - redis::master
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: master
+  - name: Base/Linux/Redis/Replica
+    puppetclasses:
+      - redis::replica
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: replica
+  - name: Base/Linux/Kafka
+    puppetclasses:
+      - kafka
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: kafka
+  - name: Base/Linux/Kafka/Broker
+    puppetclasses:
+      - kafka::broker
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: broker
+  - name: Base/Linux/Kafka/Zookeeper
+    puppetclasses:
+      - kafka::zookeeper
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: zookeeper
+  - name: Base/Linux/Nginx
+    puppetclasses:
+      - nginx
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: nginx
+  - name: Base/Linux/Nginx/Proxy
+    puppetclasses:
+      - nginx::proxy
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: proxy
+  - name: Base/Linux/Postgres
+    puppetclasses:
+      - postgres
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: postgres
+  - name: Base/Linux/Postgres/Primary
+    puppetclasses:
+      - postgres::primary
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: primary
+  - name: Base/Linux/Postgres/Standby
+    puppetclasses:
+      - postgres::standby
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: standby
+  - name: Base/Linux/Mongodb
+    puppetclasses:
+      - mongodb
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: mongodb
+  - name: Base/Linux/Mongodb/Shard
+    puppetclasses:
+      - mongodb::shard
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: shard
+  - name: Base/Linux/Mongodb/Config
+    puppetclasses:
+      - mongodb::config
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: config
+  - name: Base/Linux/Rabbitmq
+    puppetclasses:
+      - rabbitmq
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: rabbitmq
+  - name: Base/Linux/Rabbitmq/Cluster
+    puppetclasses:
+      - rabbitmq::cluster
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: cluster
+  - name: Base/Linux/Vault
+    puppetclasses:
+      - vault
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: vault
+  - name: Base/Linux/Vault/Server
+    puppetclasses:
+      - vault::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Consul
+    puppetclasses:
+      - consul
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: consul
+  - name: Base/Linux/Consul/Server
+    puppetclasses:
+      - consul::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Consul/Agent
+    puppetclasses:
+      - consul::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Linux/Traefik
+    puppetclasses:
+      - traefik
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: traefik
+  - name: Base/Linux/Traefik/Controller
+    puppetclasses:
+      - traefik::controller
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: controller
+  - name: Base/Linux/Harbor
+    puppetclasses:
+      - harbor
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: harbor
+  - name: Base/Linux/Harbor/Core
+    puppetclasses:
+      - harbor::core
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: core
+  - name: Base/Linux/Harbor/Registry
+    puppetclasses:
+      - harbor::registry
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: registry
+  - name: Base/Linux/Argocd
+    puppetclasses:
+      - argocd
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: argocd
+  - name: Base/Linux/Argocd/Server
+    puppetclasses:
+      - argocd::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Argocd/Controller
+    puppetclasses:
+      - argocd::controller
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: controller
+  - name: Base/Linux/Jenkins
+    puppetclasses:
+      - jenkins
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: jenkins
+  - name: Base/Linux/Jenkins/Master
+    puppetclasses:
+      - jenkins::master
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: master
+  - name: Base/Linux/Jenkins/Agent
+    puppetclasses:
+      - jenkins::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Linux/Gitlab
+    puppetclasses:
+      - gitlab
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: gitlab
+  - name: Base/Linux/Gitlab/App
+    puppetclasses:
+      - gitlab::app
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: app
+  - name: Base/Linux/Gitlab/Runner
+    puppetclasses:
+      - gitlab::runner
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: runner
+  - name: Base/Linux/Minio
+    puppetclasses:
+      - minio
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: minio
+  - name: Base/Linux/Minio/Server
+    puppetclasses:
+      - minio::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Nextcloud
+    puppetclasses:
+      - nextcloud
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: nextcloud
+  - name: Base/Linux/Nextcloud/App
+    puppetclasses:
+      - nextcloud::app
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: app
+  - name: Base/Windows
+    puppetclasses:
+      - base::windows
+    fact_rules:
+      - fact: kernel
+        operator: "="
+        value: windows
+  - name: Base/Windows/Prometheus
+    puppetclasses:
+      - prometheus
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: prometheus
+  - name: Base/Windows/Prometheus/Server
+    puppetclasses:
+      - prometheus::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Windows/Prometheus/Nodeexporter
+    puppetclasses:
+      - prometheus::node_exporter
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: node_exporter
+  - name: Base/Windows/Grafana
+    puppetclasses:
+      - grafana
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: grafana
+  - name: Base/Windows/Grafana/Server
+    puppetclasses:
+      - grafana::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Windows/Elasticsearch
+    puppetclasses:
+      - elasticsearch
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: elasticsearch
+  - name: Base/Windows/Elasticsearch/Master
+    puppetclasses:
+      - elasticsearch::master
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: master
+  - name: Base/Windows/Elasticsearch/Data
+    puppetclasses:
+      - elasticsearch::data
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: data
+  - name: Base/Windows/Kafka
+    puppetclasses:
+      - kafka
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: kafka
+  - name: Base/Windows/Kafka/Broker
+    puppetclasses:
+      - kafka::broker
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: broker
+  - name: Base/Windows/Kafka/Zookeeper
+    puppetclasses:
+      - kafka::zookeeper
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: zookeeper
+  - name: Base/Windows/Nginx
+    puppetclasses:
+      - nginx
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: nginx
+  - name: Base/Windows/Nginx/Proxy
+    puppetclasses:
+      - nginx::proxy
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: proxy
+  - name: Base/Windows/Postgres
+    puppetclasses:
+      - postgres
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: postgres
+  - name: Base/Windows/Postgres/Primary
+    puppetclasses:
+      - postgres::primary
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: primary
+  - name: Base/Windows/Postgres/Standby
+    puppetclasses:
+      - postgres::standby
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: standby
+  - name: Base/Windows/Mongodb
+    puppetclasses:
+      - mongodb
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: mongodb
+  - name: Base/Windows/Mongodb/Shard
+    puppetclasses:
+      - mongodb::shard
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: shard
+  - name: Base/Windows/Mongodb/Config
+    puppetclasses:
+      - mongodb::config
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: config
+  - name: Base/Windows/Rabbitmq
+    puppetclasses:
+      - rabbitmq
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: rabbitmq
+  - name: Base/Windows/Rabbitmq/Cluster
+    puppetclasses:
+      - rabbitmq::cluster
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: cluster
+  - name: Base/Windows/Vault
+    puppetclasses:
+      - vault
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: vault
+  - name: Base/Windows/Vault/Server
+    puppetclasses:
+      - vault::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Windows/Consul
+    puppetclasses:
+      - consul
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: consul
+  - name: Base/Windows/Consul/Server
+    puppetclasses:
+      - consul::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Windows/Consul/Agent
+    puppetclasses:
+      - consul::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Windows/Traefik
+    puppetclasses:
+      - traefik
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: traefik
+  - name: Base/Windows/Traefik/Controller
+    puppetclasses:
+      - traefik::controller
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: controller
+  - name: Base/Windows/Jenkins
+    puppetclasses:
+      - jenkins
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: jenkins
+  - name: Base/Windows/Jenkins/Master
+    puppetclasses:
+      - jenkins::master
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: master
+  - name: Base/Windows/Jenkins/Agent
+    puppetclasses:
+      - jenkins::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Windows/Minio
+    puppetclasses:
+      - minio
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: minio
+  - name: Base/Windows/Minio/Server
+    puppetclasses:
+      - minio::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
