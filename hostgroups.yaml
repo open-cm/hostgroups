@@ -3,9 +3,10 @@ hostgroups:
     puppetclasses:
       - base
     fact_rules:
-     - fact: clientcert
+      - fact: clientcert
         operator: "~"
         value: ".*"
+
   - name: Base/Linux
     puppetclasses:
       - base::linux
