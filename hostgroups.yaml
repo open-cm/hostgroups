@@ -2,7 +2,10 @@ hostgroups:
   - name: Base
     puppetclasses:
       - base
-    fact_rules: []
+    fact_rules:
+     - fact: clientcert
+        operator: "~"
+        value: ".*"
   - name: Base/Linux
     puppetclasses:
       - base::linux
