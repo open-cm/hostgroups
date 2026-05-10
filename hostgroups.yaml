@@ -2,11 +2,7 @@ hostgroups:
   - name: Base
     puppetclasses:
       - base
-    fact_rules:
-      - fact: clientcert
-        operator: "~"
-        value: ".*"
-
+    fact_rules: []
   - name: Base/Linux
     puppetclasses:
       - base::linux
@@ -385,6 +381,34 @@ hostgroups:
       - fact: app_feature
         operator: "="
         value: app
+  - name: Base/Linux/Zabbix
+    puppetclasses:
+      - zabbix
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: zabbix
+  - name: Base/Linux/Zabbix/Server
+    puppetclasses:
+      - zabbix::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Linux/Zabbix/Agent
+    puppetclasses:
+      - zabbix::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Linux/Zabbix/Proxy
+    puppetclasses:
+      - zabbix::proxy
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: proxy
   - name: Base/Windows
     puppetclasses:
       - base::windows
@@ -623,3 +647,31 @@ hostgroups:
       - fact: app_feature
         operator: "="
         value: server
+  - name: Base/Windows/Zabbix
+    puppetclasses:
+      - zabbix
+    fact_rules:
+      - fact: app
+        operator: "="
+        value: zabbix
+  - name: Base/Windows/Zabbix/Server
+    puppetclasses:
+      - zabbix::server
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: server
+  - name: Base/Windows/Zabbix/Agent
+    puppetclasses:
+      - zabbix::agent
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: agent
+  - name: Base/Windows/Zabbix/Proxy
+    puppetclasses:
+      - zabbix::proxy
+    fact_rules:
+      - fact: app_feature
+        operator: "="
+        value: proxy
